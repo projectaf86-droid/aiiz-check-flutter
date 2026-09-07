@@ -1,0 +1,14 @@
+FIX LOGIN NAVIGATION
+
+Masalah sebelumnya:
+LoginScreen menerima callback dari SplashScreen. Setelah SplashScreen diganti oleh LoginScreen,
+context SplashScreen sudah tidak aktif sehingga tombol Masuk tidak bisa melakukan navigasi dengan benar.
+
+Perbaikan:
+- LoginScreen sekarang mengirim BuildContext miliknya sendiri ke callback login.
+- Navigasi ke MainShell memakai context halaman Login yang masih aktif.
+
+Setelah mengganti project / file:
+flutter clean
+flutter pub get
+flutter run -d chrome
